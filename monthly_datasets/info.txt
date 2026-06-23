@@ -1,0 +1,61 @@
+transition_date	text	Geçiş Tarihi	
+TR: Geçiş tarihi bilgisini içeren alandır. Veri formatı YYYY-MM-DD şeklindedir.
+
+EN: It is the field that contains the transition date information. The data format is YYYY-MM-DD.
+
+transition_hour	varchar	Geçiş Saati	
+TR: Geçiş saati bilgisini içeren alandır. Veri formatı HH şeklindedir.
+
+EN: It is the field that contains the transit time information. The data format is HH.
+
+transport_type_id	int8	Ulaşım Türü ID	
+TR: Toplu ulaşımı kullanan yolcuların hangi ulaşım türünü kullandığını gösteren tekil alan. 1: Otoyol 2: Raylı 3:Deniz.
+
+EN: A single field that shows which mode of transportation is used by passengers using public transportation. 1: Highway 2: Rail 3: Marine Transportation.
+
+road_type	varchar	Ulaşım Türü Açıklama	
+TR: Ulaşım tiplerinin yer aldığı alandır.
+
+EN: It is the area where the types of transportation take place.
+
+line	varchar	Hat	
+TR: Ulaşımın sağlandığı hat bilgisini içermektedir.
+
+EN: It contains the line information on which the transportation is provided.
+
+transfer_type	varchar	Transfer Türü	
+TR: Toplu Ulaşımı kullanan yolcuların hangi tip geçiş yaptıklarını gösteren alandır. Aktarma: Bir ve ya daha fazla toplu ulaşım aracı ile yolculuk Normal : Aktarma yapılmayan yolculuk
+
+EN: It is the field that shows the type of transit passengers using Public Transportation. Transfer: Travel by one or more public transport Normal: Journey without transfer
+
+number_of_passage	int8	Yolculuk Sayısı	
+TR: Verilen saatte, transfer tipi ve ulaşım tipine göre yolculuk sayısını içerir.
+
+EN: Includes the number of trips per hour, transfer type and transportation type.
+
+number_of_passenger	int8	Yolcu Sayısı	
+TR: Verilen saatte, transfer tipi ve ulaşım tipine göre yolculuk yapan tekil yolcu sayısını içerir.
+
+EN: It includes the number of individual passengers traveling in the given hour, depending on the type of transfer and the type of transportation.
+
+product_kind	varchar	Kart Türü	
+TR: Kart türü bilgisini içerir.
+
+EN: Contains card type information.
+
+transaction_type_desc	varchar	İşlem Tipi Açıklaması	
+TR: İşlem tipi açıklama bilgisini içerir.
+
+EN: Contains transaction type description information.
+
+town	varchar	İlçe	
+TR: İlçe bilgisini içerir.
+
+EN: Contains district information.
+
+line_name	varchar	Ulaşım Hattı Adı	
+TR: Ulaşım hattı adı bilgisini içerir.
+
+EN: Contains transportation line name information.
+
+station_poi_desc_cd	varchar	
