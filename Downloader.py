@@ -56,9 +56,15 @@ Aktarma,INDIRIMLI2,Indirimli Aktarma
 """
 
 csv_stream = io.StringIO(test_str)
-pseudofile = duckdb.read_csv(csv_stream)
+pseudofile = duckdb.read_csv("monthly_datasets/*2023*.csv")
 #df = pd.read_excel("New Microsoft Excel Worksheet.xlsx")
-print(duckdb.sql("SELECT * from pseudofile"))
+print(duckdb.sql("SELECT * from pseudofile limit 5"))
+duckdb.sql("""COPY 
+           (SELECT transition_date, transition_hour, number_of_passage, number_of_passenger, product_kind, transaction_type_desc, town, line_name, station_poi_desc_cd
+ from pseudofile) 
+           TO 'test.parquet' 
+           (FORMAT parquet)""")
+
 #df_selection = df[(df["Year"] == 2024) & (df["Month"] == "December")]
 
 #for url in df_selection["CSV_URL"]:
