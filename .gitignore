@@ -2,3 +2,8 @@ h*.csv
 .venv
 *.parquet
 duck*
+*db
+.env
+dependencies
+*.py
+.vscode
