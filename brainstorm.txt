@@ -1,0 +1,60 @@
+- Line population by hour
+- Line population by month
+- Line population by weekday
+
+- Distribution of passenger cards
+- Town population by passenger
+
+
+
+
+
+
+
+
+-- What is the busiest month?
+-- What is the busiest line?
+-- What are the busiest hours?
+-- What are the most populated towns?
+-- What are the busiest stations?
+-- 
+
+
+# I want to avoid crowds and I am looking for the best time and path to take around istanbul:
+	- What time to take transport in morning/midday/evening.
+	- Average hourly passenger density / max
+	- What time and day to visit the most crowded places
+	- 
+
+
+# I am a market branch manger:
+	- Where should we open a new branch?
+	- What time do we expect high and low traffic for duty managent?
+	- What goods should we expect to sell?
+	- Best places for a small branch and best places for a large branch?
+
+
+# I am a retail store:
+	- What time of year will have the most traffic
+	- Which towns will be the most crowded
+	- Which branches should be stocked higher and have more staff
+	- When should campaigns be made
+	
+	
+# I am a breakfast resteraunt:
+	- Where should we open a branch?
+	- What time of day and year should we expect the most traffic?
+	- What time should we open?
+	
+# I am a normal resteraunt:
+	- Where should we open a branch?
+	- When should we expect the dinner / lunch rush?
+	- Seasonal traffic?
+	- 
+	
+# I am a transit manager:
+	- Estimate the costs of certain lines/stations
+	- Which lines should be more frequent and when
+	- Which lines/stations should have more accessibility upkeep
+	- Estimate advert pricing by line/station
+	
