@@ -45,6 +45,7 @@
 	- Where should we open a branch?
 	- What time of day and year should we expect the most traffic?
 	- What time should we open?
+	- Who would be the target?
 	
 # I am a normal resteraunt:
 	- Where should we open a branch?
