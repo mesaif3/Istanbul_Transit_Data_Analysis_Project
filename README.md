@@ -1,4 +1,6 @@
-##Tools use
+#Tools used
+![](Pipeline.jpeg)
+
 data ETL:
 - Python
 - duckdb
@@ -10,7 +12,6 @@ data ETL:
 data visualization:
 - Microsoft PowerBi
 - Quack-net power bi connector
-- 
 
 # Data Quality Assesment 
 
