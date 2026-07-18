@@ -6,7 +6,7 @@
 
 **Solution:** An ETL pipeline can facilitate the collection of data from accessable data, such as the [Hourly Public Transport Data Set](https://data.ibb.gov.tr/en/dataset/hourly-public-transport-data-set), storing data in a specialized format for direct use and quality assesment through the use of BI tools.
 
-# Data Pipeline Architecture
+## Data Pipeline Architecture
 
 ![](Pipeline.jpeg)
 
