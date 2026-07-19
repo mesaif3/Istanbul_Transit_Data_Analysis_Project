@@ -82,7 +82,19 @@ The default values do not need to be modified for the dataset used in this proje
 # Data Quality Assesment
 
 ![](image.png)
+When looking at the summaries of the extracted dim information, a few quick insights come to mind:
+
+1. The dataset seems to have mismatched dimensions in a notable portion of it's rows.
+2. The Line Dim seems to have many mismatches but it seems the data is acceptable enough unless we wish to look at data under the "RAYLI" category in specific.
+3. The Ticket Dim seems to have far too error prone to make any direct analysis using it before correcting it.
+4. The Road Dim seems to be free of any conflicting dimensional properties.
+
 ![](image-1.png)
+When browsing the more detailed page in the dashboard, we can dive deeper into the possible regions of conflict and determine where we need to direct our attention. This example of the Line Dimensional information offers such insights:
+
+- ~16.9% of the Rayli data is cause for error, filtering for it, shows the problems lie in lines M1 and M5, which have two entries each for different transport_type_id (They are listed as Rayli and as either Deniz or Otoyol).
+- ~2.3% of the Otoyol data is cause for error. Filtering for it will show that 34A has two entries for different transport_type_id, while the rest have different entries for different line routes.
+- When the Permissible Conflict Rate is 0.5%, the only lines worth addressing would be M1, M5, and 34A, in that order.
 
 # Transit info summary
 
