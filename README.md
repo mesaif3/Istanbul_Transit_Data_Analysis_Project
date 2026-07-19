@@ -96,17 +96,90 @@ When browsing the more detailed page in the dashboard, we can dive deeper into t
 - ~2.3% of the Otoyol data is cause for error. Filtering for it will show that 34A has two entries for different transport_type_id, while the rest have different entries for different line routes.
 - When the Permissible Conflict Rate is 0.5%, the only lines worth addressing would be M1, M5, and 34A, in that order.
 
-# Transit info summary
+# Transit Operations Manager Dashboard
+
+In Istanbul, a significant portion of the population rely heavily on the public transportation system to commute around the city. A transit operations manager is expected to provide adequate routes and provide acceptable quality of life standards to the passangers, regardless of status. This dashboard uses Hourly Transportation data from 2023-2024 to answer a few questions.
+
+A few measures are frequently used in the graph axis', which makes them worth addressing for context:
+
+- **Median Total Hourly Passages:** The number of passages are collected in window sizes of one hour, and we take the median across these bins.
+- **Median Total Daily Passages:** The number of passages are collected in window sizes of one day, and we take the median across these bins.
+- **Median Total Monthly Passages:** The number of passages are collected in window sizes of one month, and we take the median across these bins.
+- **The use of medians over averages:** When using medians, we make the insight more robust against outliers and varying sample sizes. By comparing the Median Total Daily Passages and the Median Total Monthly Passages, we can quickly detect the presence of outliers between the day-to-day windows.
+- **Coefficient of Variation:** The coefficient of variation is specifically that of the number of passangers column. The standard deviation is divided by the average to show relative variablity by categories.
+- **Erraticity:** is the ratio of the Median Total Monthly Passages to the Median Total Daily Passages - 30. This gives a rate and direction of skewness in the median total daily passages by the grouping categories.
+- **Popularity Vector:** A measure that is used to see how popular a line is with a certain card type. (Popularity of the line amongst all lines) \* (How much of the transactions are by a specific card type)
+
+## Transit info summary
 
 ![](transit/Transit_sql_quack-1.png)
-![](transit/Transit_sql_quack1-1.png)
 
-# Transit info deep dive
+- How many passenges can be expected per hour, day, or month?
+  - The median of passages was 282K per hour, 7M per day, and 201M per month. More specific information can be provided when filtering for certain lines or stations.
+- How are the passages distributed accross types of transport?
+  - ~57% of the daily passages are on the Otoyol lines, and ~43% of the daily passages are on the Rayli lines. The Deniz lines were too low to consider.
+- What are the three most common card types?
+  - At ~43% of monthly transactions, "INDIRIMLI1" is the most commonly used card, which is most likely the discounted card given to students, teachers, and people older than 60.
+  - At ~39% of monthly transactions, "TAM" is the 2nd most commonly used card, which is most likely the base, undiscounted card that is available to everyone.
+  - At ~13% of monthly transactions, "UCRETSIZ" is the 3rd most commonly used card, which is most likely the free pass card given to mothers, disabled people, veterans, people older than 65, and so on.
+
+When sorting by the Line Name of the relevant transactions, we can look at the lower half of the dashboards to answer these questions:
+
+- What are the top 5 used lines?
+  - 34, Marmaray, M2, T1, and M1. However, most of them are Rayli lines.
+- What can you say about the distribution of the passanges accross the lines?
+  - Most of the passages are recorded to be on Rayli and Otoyol lines. However, most of the passages happen in a handful of lines.
+  - Almost all of the Rayli lines have very high passages with low Erraticity, while the Otoyol passages are distributed accross a large amount of different lines is lower amounts but with a certain Erraticity, with the exception of 34 and 34A, the metrobus lines, which behave similiar to the Rayli lines.
+
+![](transit/Transit_sql_quack1-1.png)
+When sorting by the Station Name of the relevant transactions, we can look at the lower half of the dashboards to answer these questions:
+
+- What are the top 5 most used stations?
+  - We can see that most of the Otoyol transactions don't include a station name! Hence, we cannot infer much on bus stations.
+  - The next top stations are Yenikapi, Zeytinburnu, Sisli 2 Kuzey, Yenikapi-2, and Mecidiyekoy, which are a mix of Rayli and Otoyol lines.
+  - It can be noted that the less popular Deniz stations are seen competing with the stations of the other line types. This is likely due to the Deniz lines only having 2 stations per line, as opposed to the 10+ stations found on Otoyol and Rayli lines.
+- What can you say about the distribution of the passanges accross the lines?
+  - The stations are more spread out in use for Rayli lines, but they still sit on the higher end of total passangers.
+  - The Deniz stations either have a very large amount of passengers (like USKUDAR) or very low amount.
+  - We can see that the Otoyol lines are all grouped together in one clump because they dont include the station in the transactions.
+
+## Transit info deep dive
 
 ![](transit/Transit_sql_quack-2.png)
+
+- What are the highest traffic hours?
+  - Weekdays have peaks at 8:00AM and 6:00PM, which corresponds to the 9-5 workday.
+  - Weekends have much lower peaks around 12:00PM and 6:00PM.
+- How do the passages per line vary by the season?
+  - High variations, of ~ 80% relative to the mean, are seen around August and drop by the end of November.
+- How are the line passages affected by the day of the week?
+  - Weekdays hold roughly similiar values regardless of the line type, while weekends see a dip in Otoyol and Rayli, while Deniz lines see more use.
+- Which lines require more attention for accesibility infrastructure?
+  - 34, Marmaray, T1, M1, and T4 are the top 5 lines by popularity when filtered for the "UCRETSIZ" card. This is sorted by a joint probablity vector to show how popular a line is amongst users with accessibility needs.
+
 ![](transit/Transit_sql_quack1-2.png)
+
+- What months see the most and least daily traffic?
+  - The weekdays of May and October tend to see the most daily traffic with a median of 8.2M, an increase of ~17% of the global median.
+  - August sees the least traffic with a median of ~6.3M, a decrease of ~10% from the global median.
+- What months are more likely to have less traffic?
+  - The erraticity in the months of August to September are highly negative, which suggests a skewness towards low-activity in the daily medians of these months.
+
 ![](transit/Transit_sql_quack2-1.png)
 
-# Transit info relationship model
+- How do the insights change when grouped differently?
+  - The erraticity and daily passages exhibit very similiar behaviors when grouped by card type instead of by line type. This implies that the cause for the activity is not dependant on the category.
+
+## Transit info relationship model
 
 ![](transit/Transit_sql_quack_model.png)
+
+Information on the columns can be found at [Hourly Public Transport Data Set](https://data.ibb.gov.tr/en/dataset/hourly-public-transport-data-set)
+
+The star schema model includes tables that are chached or queried from the Quack Server as such:
+
+- **dates:** This table is cached and it holds the dates and additional information, such as transition_date as primary key, day number, month name, year, ets.
+- **line_dim:** This table is cached and it holds information of the line such as, line name as primary key, line route, and line type as foreign key.
+- **road_dim:** This table is cached and it holds information the line type with the index as the primary key
+- **ticket_dim:** This table is cached and holds whether the transaction type is a transfer or not. It holds the transaction_type_desc as primary key and transfer_type
+- **hourly_transportation_all:** Is the facts table that is queried from the server using direct query.
