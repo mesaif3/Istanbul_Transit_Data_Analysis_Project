@@ -17,7 +17,7 @@ The data used in this project was acquired from the Istanbul Metropolitan Munici
 ## Data Lakehouse
 
 - **Stored CSV data:** These are manually selected and downloaded files.
-- **Processed and compressed data:** These are exports of the processing blocks to be used as ready-to-upload references, but are not meant to be loaded directly into BI tools.
+- **Processed and compressed data:** These are exports, with up to **3200%** size compression, of the processing blocks to be used as ready-to-upload references, but are not meant to be loaded directly into BI tools.
 - **SQL Database:** A database to be hosted by an SQL server to be queried by the BI tools.
 
 ## Data Extraction
@@ -34,6 +34,17 @@ The data used in this project was acquired from the Istanbul Metropolitan Munici
   - **Cleaning:** The unnecessary columns are removed and the rows of data are aggregated to reduce the dataset's size.
   - **Exporting:** The produced facts table is exported into a compressed file for long-term storage.
 - **Apache Arrow:** When the dataset is too large and DuckDB fails to export it using the default parameters, it is streamed into Apache for exporting by chunks.
+
+## Compression Effectiveness
+
+The pipeline reduces storage significantly by cleaning raw CSVs and exporting compressed parquet. Using the data set of May 2024, example file-level results from the pipeline are shown below:
+
+| Stage             | File size (bytes) | Compression vs raw CSV |
+| ----------------- | ----------------: | ---------------------: |
+| Raw CSV           |         1,772,334 |               **1.0x** |
+| Cleaned CSV       |           537,687 |              **3.30x** |
+| Cleaned Parquet   |            55,387 |              **32.0x** |
+| Compressed Export |           140,300 |              **12.6x** |
 
 ## SQL Management
 
