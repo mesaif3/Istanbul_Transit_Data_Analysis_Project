@@ -1,5 +1,7 @@
 # Istanbul Transit Data Project
+
 [SQL Documentation](SQL_DESC.md)
+
 ## Purpose & Method
 
 **Challenge:** A metropolitan city like Istanbul is bound to have competitive costs of living, as well as running a business. While people are forced into commutes due to housing situations, and businesses need to manage their assets in a competitive market, management teams need to rely on gatherable data to make insights and forecast future trends.
@@ -12,7 +14,7 @@
 
 ## Data Source
 
-The data used in this project was acquired from the Istanbul Metropolitan Municipality Open Data Portal. More specifically, it was acquired from the [Hourly Public Transport Data Set](https://data.ibb.gov.tr/en/dataset/hourly-public-transport-data-set). These datasets contain "passenger and journey data using public transportation in Istanbul in hourly terms." For the sake of this project, the datasets were retrieved in .CSV formats, processed and compressed, loaded into an SQL database, and finally visualized in Microsoft Power BI.
+The data used in this project was acquired from the Istanbul Metropolitan Municipality Open Data Portal. More specifically, it was acquired from the [Hourly Public Transport Data Set](https://data.ibb.gov.tr/en/dataset/hourly-public-transport-data-set). These datasets contain "passenger and journey data using public transportation in Istanbul in hourly terms." For the sake of this project, **~320M** rows of the datasets were retrieved in .CSV formats, processed and compressed into **~166M** rows, loaded into an SQL database, and finally visualized in Microsoft Power BI.
 
 ## Data Lakehouse
 
