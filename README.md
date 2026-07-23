@@ -2,6 +2,22 @@
 
 [SQL Documentation](SQL_DESC.md)
 
+## Executive Summary
+
+- ✅ **Project scope:** Built an **end-to-end ETL pipeline** to collect, process, and analyze Istanbul public transportation data.
+- ✅ **Data engineering:** Processed **320M+** raw records into **166M** optimized analytical records using **Python, DuckDB, SQL, and Apache Arrow**.
+- ✅ **Analytics platform:** Deployed a **DuckDB + Quack** backend with **Power BI DirectQuery** dashboards for interactive reporting.
+- ✅ **Outcomes:** Delivered operational insights into passenger demand, transit usage, seasonality, and data quality while achieving up to **32× storage compression**.
+
+## Key Insights / Results
+
+- 📊 **Passenger demand:** Median ridership reaches approximately **282K hourly**, **7M daily**, and **201M monthly** passenger passages.
+- 🚌 **Transit distribution:** **Bus (Otoyol)** accounts for roughly **57%** of total passenger traffic, while **Rail (RAYLI)** contributes **43%**.
+- 🚉 **Network performance:** Metro and Metrobus lines (34, Marmaray, M2, T1, M1) consistently rank among the busiest routes, with major interchange stations such as **Yenikapı** and **Mecidiyeköy** serving the highest passenger volumes.
+- ⏰ **Travel patterns:** Weekday demand peaks at **8 AM** and **6 PM**, with noticeable seasonal declines during **August** and increased ridership in **May** and **October**.
+- 🔍 **Data quality:** Automated dimensional validation identified inconsistencies in **Ticket** and **Line** dimensions while confirming the **Road** dimension as reliable, helping prioritize data cleansing efforts.
+- 💾 **Performance:** The pipeline reduces storage requirements by up to **32×**, enabling efficient querying and scalable Business Intelligence reporting.
+
 ## Purpose & Method
 
 **Challenge:** A metropolitan city like Istanbul is bound to have competitive costs of living, as well as running a business. While people are forced into commutes due to housing situations, and businesses need to manage their assets in a competitive market, management teams need to rely on gatherable data to make insights and forecast future trends.
